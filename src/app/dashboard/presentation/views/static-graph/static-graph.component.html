@@ -1,0 +1,63 @@
+<h1>Movies <small>Series</small> </h1>
+<hr>
+<br>
+<form [formGroup]="formGroupMovies">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                Año:
+            </div>
+            <div class="col">
+                Película o serie:
+            </div>
+            <div class="col">
+                Orden:
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col">
+                <select class="form-control input-sm" formControlName="YearChange" data-placeholder="Choose one"
+                    (change)="onYearChange( )">
+                    <option value="-1" selected>Todos</option>
+                    <option *ngFor="let option of tableYears " [value]="option.releaseYear">{{option.releaseYear}}
+                    </option>
+                </select>
+            </div>
+            <div class="col">
+                <select class="form-control input-sm" formControlName="TitleChange" data-placeholder="Choose one"
+                    (change)="onTitleChange( )">
+                    <option value="TODOS" selected>Todos</option>
+                    <option *ngFor="let option of tableSeries" [value]="option.title">{{option.title}}</option>
+                </select>
+            </div>
+
+            <div class="col">
+                <select class="form-control input-sm" formControlName="OrderChange" data-placeholder="Choose one"
+                (change)="onOrderChange( )">
+                    <option value="1" selected>Nombre</option>
+                    <option value="2" selected>Año</option>
+                </select>
+            </div>
+
+        </div>
+    </div>
+</form>
+<br>
+<small>Total records: {{count}}</small>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-2">
+
+        </div>
+        <div class="col-md-auto">
+            <amb-movie [heroe]="Inputheroe" *ngFor="let Inputheroe of table ; let i = index">
+            </amb-movie>
+        </div>
+        <div class="col col-lg-2">
+
+        </div>
+    </div>
+
+</div>
+<small>Total records: {{count}}</small>
